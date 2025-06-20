@@ -1,22 +1,14 @@
-// src/navigation/Navigation.tsx
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Screens } from "../types/navigation";
 
-// Importera skärmar
 import StartScreen from "../screens/StartScreen";
 import SetupScreen from "../screens/SetupScreen";
 import RoundScreen from "../screens/RoundScreen";
 import ResultScreen from "../screens/ResultScreen";
 
-export type RootStackParamList = {
-  Start: undefined;
-  Setup: undefined;
-  Round: undefined;
-  Result: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<Screens>();
 
 export default function Navigation() {
   return (
@@ -35,12 +27,12 @@ export default function Navigation() {
         <Stack.Screen
           name="Round"
           component={RoundScreen}
-          options={{ title: "Spelrundor" }}
+          options={{ title: "Rundor" }}
         />
         <Stack.Screen
           name="Result"
           component={ResultScreen}
-          options={{ title: "Slutresultat" }}
+          options={{ title: "Resultat" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
